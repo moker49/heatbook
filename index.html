@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <title>Heatbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="top-app-bar">
+      <div>
+        <h1>Heatbook</h1>
+      </div>
+      <button id="reset-data" class="icon-button" aria-label="Restore starter timers"
+        title="Restore starter timers"><span class="material-symbols-rounded">restart_alt</span></button>
+    </header>
+
+    <section id="timer-list" class="timer-list" aria-label="Cooking timers"></section>
+    <p id="empty-state" class="empty-state" hidden>No timers yet. Add one to get cooking.</p>
+  </main>
+
+  <button id="add-button" class="fab" aria-label="Add cooking timer"><span
+      class="material-symbols-rounded">add</span><span>Add timer</span></button>
+
+  <dialog id="timer-dialog" class="timer-dialog" aria-labelledby="dialog-title">
+    <form id="timer-form" method="dialog">
+      <div class="dialog-heading">
+        <div class="dialog-title-group">
+          <h2 id="dialog-title">Add timer</h2>
+        </div>
+        <button type="button" id="close-dialog" class="icon-button" aria-label="Close"><span
+            class="material-symbols-rounded">close</span></button>
+      </div>
+
+      <div class="form-layout">
+        <div class="identity-row">
+          <button type="button" id="image-picker-button" class="image-picker" aria-label="Choose image"><img
+              id="selected-image" alt="Selected food" /><span class="material-symbols-rounded">edit</span></button>
+          <label class="field title-field"><span>Title</span><input id="title" name="title" required maxlength="40"
+              placeholder="e.g. Salmon" /></label>
+        </div>
+        <label class="field"><span>Subtitle</span><input id="subtitle" name="subtitle" maxlength="50"
+            placeholder="e.g. Fillet" /></label>
+        <input id="image" name="image" type="hidden" />
+        <input id="method" name="method" type="hidden" />
+        <div class="method-temperature-row">
+          <div class="field"><span>Method</span><button type="button" id="method-picker-button"
+              class="field-select-button"><span class="method-picker-value"><span id="selected-method-icon"
+                  class="material-symbols-rounded"></span><span id="selected-method-label"></span></span><span
+                class="material-symbols-rounded select-arrow">expand_more</span></button></div>
+          <label class="field"><span>Temperature</span><span class="input-with-unit"><input id="temperature"
+                name="temperature" type="number" required min="150" max="500" inputmode="numeric"
+                placeholder="400" /><span>&deg;F</span></span></label>
+        </div>
+        <div class="time-row">
+          <label class="field"><span>Min</span><span class="input-with-unit"><input id="time-min" name="timeMin"
+                type="number" required min="1" max="720" inputmode="numeric"
+                placeholder="8" /><span>minutes</span></span></label>
+          <label class="field"><span>Max</span><span class="input-with-unit"><input id="time-max" name="timeMax"
+                type="number" required min="1" max="720" inputmode="numeric"
+                placeholder="12" /><span>minutes</span></span></label>
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" id="delete-button" class="text-button danger" hidden>Delete</button>
+        <span class="action-spacer"></span>
+        <button type="button" id="cancel-button" class="text-button">Cancel</button>
+        <button type="submit" class="filled-button">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="image-dialog" class="picker-dialog" aria-labelledby="image-picker-title">
+    <div class="picker-heading">
+      <h2 id="image-picker-title">Choose image</h2><button type="button" class="close-picker icon-button"
+        aria-label="Close image picker"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div id="image-options" class="image-options"></div>
+  </dialog>
+  <dialog id="method-dialog" class="picker-dialog" aria-labelledby="method-picker-title">
+    <div class="picker-heading">
+      <h2 id="method-picker-title">Cooking method</h2><button type="button" class="close-picker icon-button"
+        aria-label="Close method picker"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div id="method-options" class="method-options"></div>
+  </dialog>
+
+  <dialog id="reset-dialog" class="confirm-dialog" aria-labelledby="reset-dialog-title">
+    <div class="confirm-icon material-symbols-rounded" aria-hidden="true">warning</div>
+    <h2 id="reset-dialog-title">Restore starter timers?</h2>
+    <p>This will replace your current timers with the original set.</p>
+    <div class="dialog-actions"><span class="action-spacer"></span><button type="button" id="cancel-reset"
+        class="text-button">Cancel</button><button type="button" id="confirm-reset"
+        class="filled-button">Restore</button></div>
+  </dialog>
+
+  <template id="timer-template">
+    <article class="timer-card" tabindex="0" role="button">
+      <div class="food-image-wrap"><img class="food-image" alt="" /></div>
+      <div class="timer-content">
+        <h2 class="timer-title"></h2>
+        <p class="timer-subtitle"></p>
+      </div>
+      <div class="timer-details">
+        <div><span class="material-symbols-rounded method-icon"></span><span class="temperature"></span></div><strong
+          class="time-range"></strong>
+      </div>
+      <span class="card-action material-symbols-rounded" aria-hidden="true">chevron_right</span>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+
+</html>
