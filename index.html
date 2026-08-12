@@ -57,9 +57,7 @@
               class="field-select-button"><span class="method-picker-value"><span id="selected-method-icon"
                   class="material-symbols-rounded"></span><span id="selected-method-label"></span></span><span
                 class="material-symbols-rounded select-arrow">expand_more</span></button></div>
-          <label class="field"><span>Temperature</span><span class="input-with-unit"><input id="temperature"
-                name="temperature" type="number" required min="150" max="500" inputmode="numeric"
-                placeholder="400" /><span>&deg;F</span></span></label>
+          <label class="field"><span>Temperature</span><button type="button" id="temperature-picker-button" class="temperature-field is-empty"><span id="temperature-display">Select temp</span><span class="material-symbols-rounded" aria-hidden="true">device_thermostat</span></button><input id="temperature" name="temperature" type="hidden" /></label>
         </div>
         <div class="time-row">
           <label class="field"><span>Min</span><button type="button" class="duration-field" data-duration-field="timeMin"><span id="time-min-display">Select time</span><span class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-min" name="timeMin" type="hidden" /></label>
@@ -113,6 +111,23 @@
       <div class="clock-center"></div>
     </div>
     <div class="duration-actions"><button type="button" id="cancel-duration" class="text-button">Cancel</button><button type="button" id="confirm-duration" class="text-button">OK</button></div>
+  </dialog>
+
+  <dialog id="temperature-dialog" class="temperature-dialog" aria-labelledby="temperature-dialog-title">
+    <p id="temperature-dialog-title" class="duration-overline">Select temperature</p>
+    <div class="temperature-readout"><span id="temperature-value">100</span><small>&deg;F</small></div>
+    <div id="temperature-base-group" class="temperature-base-group" role="group" aria-label="Temperature base">
+      <button type="button" class="temperature-base-button" data-temperature-base="100" aria-pressed="true">100</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="200" aria-pressed="false">200</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="300" aria-pressed="false">300</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="400" aria-pressed="false">400</button>
+    </div>
+    <div id="temperature-clock-face" class="clock-face temperature-clock-face" aria-label="Temperature clock face">
+      <div id="temperature-clock-hand" class="clock-hand"><span></span></div>
+      <div id="temperature-clock-numbers"></div>
+      <div class="clock-center"></div>
+    </div>
+    <div class="duration-actions"><button type="button" id="cancel-temperature" class="text-button">Cancel</button><button type="button" id="confirm-temperature" class="text-button">OK</button></div>
   </dialog>
 
   <template id="timer-template">
