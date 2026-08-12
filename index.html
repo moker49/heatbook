@@ -62,12 +62,8 @@
                 placeholder="400" /><span>&deg;F</span></span></label>
         </div>
         <div class="time-row">
-          <label class="field"><span>Min</span><span class="input-with-unit"><input id="time-min" name="timeMin"
-                type="number" required min="1" max="720" inputmode="numeric"
-                placeholder="8" /><span>minutes</span></span></label>
-          <label class="field"><span>Max</span><span class="input-with-unit"><input id="time-max" name="timeMax"
-                type="number" required min="1" max="720" inputmode="numeric"
-                placeholder="12" /><span>minutes</span></span></label>
+          <label class="field"><span>Min</span><button type="button" class="duration-field" data-duration-field="timeMin"><span id="time-min-display">Select time</span><span class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-min" name="timeMin" type="hidden" /></label>
+          <label class="field"><span>Max</span><button type="button" class="duration-field" data-duration-field="timeMax"><span id="time-max-display">Select time</span><span class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-max" name="timeMax" type="hidden" /></label>
         </div>
       </div>
 
@@ -102,6 +98,21 @@
     <div class="dialog-actions"><span class="action-spacer"></span><button type="button" id="cancel-reset"
         class="text-button">Cancel</button><button type="button" id="confirm-reset"
         class="filled-button">Restore</button></div>
+  </dialog>
+
+  <dialog id="duration-dialog" class="duration-dialog" aria-labelledby="duration-dialog-title">
+    <p id="duration-dialog-title" class="duration-overline">Select duration</p>
+    <div class="duration-readout" aria-label="Selected duration">
+      <button type="button" id="duration-hours" class="duration-segment" aria-label="Select hours"><span id="duration-hours-value">00</span><small>hours</small></button>
+      <span class="duration-colon">:</span>
+      <button type="button" id="duration-minutes" class="duration-segment active" aria-label="Select minutes"><span id="duration-minutes-value">00</span><small>minutes</small></button>
+    </div>
+    <div id="clock-face" class="clock-face" aria-label="Minute clock face">
+      <div id="clock-hand" class="clock-hand"><span></span></div>
+      <div id="clock-numbers"></div>
+      <div class="clock-center"></div>
+    </div>
+    <div class="duration-actions"><button type="button" id="cancel-duration" class="text-button">Cancel</button><button type="button" id="confirm-duration" class="text-button">OK</button></div>
   </dialog>
 
   <template id="timer-template">
