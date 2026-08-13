@@ -180,8 +180,7 @@ select:focus {
 }
 
 .method-icon,
-.temperature,
-.time-icon {
+.temperature {
     color: color-mix(in srgb, var(--on-surface-variant) 78%, transparent);
     font-weight: 400;
 }
@@ -191,31 +190,23 @@ select:focus {
     width: 24px;
     flex: 0 0 24px;
     text-align: center;
+    font-size: 24px;
+}
+
+.time-row-display,
+.time-icon {
+    color: var(--on-surface-variant);
 }
 
 .time-row-display {
-    color: var(--on-surface-variant);
     font-weight: 400;
     white-space: nowrap;
-}
-
-.time-icon {
-    font-size: inherit;
 }
 
 .time-range {
     font-size: inherit;
     font-weight: 400;
     line-height: 1.2;
-}
-
-.time-row-display small {
-    align-self: flex-end;
-    margin: 0 0 1px 0;
-    font-size: .72rem;
-    line-height: 1;
-    font-weight: 400;
-    opacity: .78;
 }
 
 .card-action {
@@ -936,10 +927,6 @@ select:focus {
         min-width: 0;
         gap: 6px;
         font-size: .9rem;
-    }
-
-    .method-icon {
-        font-size: 21px;
     }
 
     .card-action {
