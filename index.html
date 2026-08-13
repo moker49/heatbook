@@ -29,7 +29,7 @@
   </main>
 
   <button id="add-button" class="fab" aria-label="Add cooking timer"><span
-      class="material-symbols-rounded">add</span><span>Add timer</span></button>
+      class="material-symbols-rounded">add</span><span>Add</span></button>
 
   <dialog id="timer-dialog" class="timer-dialog" aria-labelledby="dialog-title">
     <form id="timer-form" method="dialog">
@@ -57,11 +57,20 @@
               class="field-select-button"><span class="method-picker-value"><span id="selected-method-icon"
                   class="material-symbols-rounded"></span><span id="selected-method-label"></span></span><span
                 class="material-symbols-rounded select-arrow">expand_more</span></button></div>
-          <label class="field"><span>Temperature</span><button type="button" id="temperature-picker-button" class="temperature-field is-empty"><span id="temperature-display">Select temp</span><span class="material-symbols-rounded" aria-hidden="true">device_thermostat</span></button><input id="temperature" name="temperature" type="hidden" /></label>
+          <label class="field"><span>Temperature</span><button type="button" id="temperature-picker-button"
+              class="temperature-field is-empty"><span id="temperature-display">Select temp</span><span
+                class="material-symbols-rounded" aria-hidden="true">device_thermostat</span></button><input
+              id="temperature" name="temperature" type="hidden" /></label>
         </div>
         <div class="time-row">
-          <label class="field"><span>Min</span><button type="button" class="duration-field" data-duration-field="timeMin"><span id="time-min-display">Select time</span><span class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-min" name="timeMin" type="hidden" /></label>
-          <label class="field"><span>Max</span><button type="button" class="duration-field" data-duration-field="timeMax"><span id="time-max-display">Select time</span><span class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-max" name="timeMax" type="hidden" /></label>
+          <label class="field"><span>Min</span><button type="button" class="duration-field"
+              data-duration-field="timeMin"><span id="time-min-display">Select time</span><span
+                class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-min"
+              name="timeMin" type="hidden" /></label>
+          <label class="field"><span>Max</span><button type="button" class="duration-field"
+              data-duration-field="timeMax"><span id="time-max-display">Select time</span><span
+                class="material-symbols-rounded" aria-hidden="true">schedule</span></button><input id="time-max"
+              name="timeMax" type="hidden" /></label>
         </div>
       </div>
 
@@ -101,16 +110,19 @@
   <dialog id="duration-dialog" class="duration-dialog" aria-labelledby="duration-dialog-title">
     <p id="duration-dialog-title" class="duration-overline">Select duration</p>
     <div class="duration-readout" aria-label="Selected duration">
-      <button type="button" id="duration-hours" class="duration-segment" aria-label="Select hours"><span id="duration-hours-value">00</span><small>hours</small></button>
+      <button type="button" id="duration-hours" class="duration-segment" aria-label="Select hours"><span
+          id="duration-hours-value">00</span><small>hours</small></button>
       <span class="duration-colon">:</span>
-      <button type="button" id="duration-minutes" class="duration-segment active" aria-label="Select minutes"><span id="duration-minutes-value">00</span><small>minutes</small></button>
+      <button type="button" id="duration-minutes" class="duration-segment active" aria-label="Select minutes"><span
+          id="duration-minutes-value">00</span><small>minutes</small></button>
     </div>
     <div id="clock-face" class="clock-face" aria-label="Minute clock face">
       <div id="clock-hand" class="clock-hand"><span></span></div>
       <div id="clock-numbers"></div>
       <div class="clock-center"></div>
     </div>
-    <div class="duration-actions"><button type="button" id="cancel-duration" class="text-button">Cancel</button><button type="button" id="confirm-duration" class="text-button">OK</button></div>
+    <div class="duration-actions"><button type="button" id="cancel-duration" class="text-button">Cancel</button><button
+        type="button" id="confirm-duration" class="text-button">OK</button></div>
   </dialog>
 
   <dialog id="temperature-dialog" class="temperature-dialog" aria-labelledby="temperature-dialog-title">
@@ -118,16 +130,21 @@
     <div class="temperature-readout"><span id="temperature-value">100</span><small>&deg;F</small></div>
     <div id="temperature-base-group" class="temperature-base-group" role="group" aria-label="Temperature base">
       <button type="button" class="temperature-base-button" data-temperature-base="100" aria-pressed="true">100</button>
-      <button type="button" class="temperature-base-button" data-temperature-base="200" aria-pressed="false">200</button>
-      <button type="button" class="temperature-base-button" data-temperature-base="300" aria-pressed="false">300</button>
-      <button type="button" class="temperature-base-button" data-temperature-base="400" aria-pressed="false">400</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="200"
+        aria-pressed="false">200</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="300"
+        aria-pressed="false">300</button>
+      <button type="button" class="temperature-base-button" data-temperature-base="400"
+        aria-pressed="false">400</button>
     </div>
     <div id="temperature-clock-face" class="clock-face temperature-clock-face" aria-label="Temperature clock face">
       <div id="temperature-clock-hand" class="clock-hand"><span></span></div>
       <div id="temperature-clock-numbers"></div>
       <div class="clock-center"></div>
     </div>
-    <div class="duration-actions"><button type="button" id="cancel-temperature" class="text-button">Cancel</button><button type="button" id="confirm-temperature" class="text-button">OK</button></div>
+    <div class="duration-actions"><button type="button" id="cancel-temperature"
+        class="text-button">Cancel</button><button type="button" id="confirm-temperature"
+        class="text-button">OK</button></div>
   </dialog>
 
   <template id="timer-template">
