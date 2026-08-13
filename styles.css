@@ -181,7 +181,7 @@ select:focus {
 
 .method-icon,
 .temperature {
-    color: color-mix(in srgb, var(--on-surface-variant) 78%, transparent);
+    color: color-mix(in srgb, var(--on-surface-variant) 80%, transparent);
     font-weight: 400;
 }
 
@@ -195,7 +195,7 @@ select:focus {
 
 .time-row-display,
 .time-icon {
-    color: var(--on-surface-variant);
+    color: color-mix(in srgb, var(--on-surface-variant) 80%, transparent);
 }
 
 .time-row-display {
